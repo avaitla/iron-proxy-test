@@ -1,0 +1,9 @@
+[project]
+name = "iron-proxy-test"
+version = "0.1.0"
+description = "Simple web app with Iron Proxy GitHub Action"
+requires-python = ">=3.14"
+dependencies = [
+    "flask>=3.1.3",
+    "pytest>=9.0.2",
+]
