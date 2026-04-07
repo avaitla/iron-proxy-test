@@ -18,10 +18,20 @@ jobs:
       - uses: ironsh/iron-proxy-action@v0.1.1
         with:
           egress-rules: egress-rules.yaml
-          warn: "true"
+          warn: "false"
 
       - run: uv sync
       - run: uv run pytest -v
+
+      - name: Test that httpbin.org is blocked
+        run: |
+          echo "Attempting request to httpbin.org (should be blocked)..."
+          if curl -sf --max-time 5 https://httpbin.org/get; then
+            echo "FAIL: request to httpbin.org was NOT blocked"
+            exit 1
+          else
+            echo "PASS: request to httpbin.org was blocked by Iron Proxy"
+          fi
 
       - uses: ironsh/iron-proxy-action/summary@v0.1.1
         if: always()

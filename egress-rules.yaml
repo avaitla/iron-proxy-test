@@ -3,3 +3,4 @@ domains:
   - "*.pypi.org"
   - "files.pythonhosted.org"
   - "*.pythonhosted.org"
+  - "releases.astral.sh"
