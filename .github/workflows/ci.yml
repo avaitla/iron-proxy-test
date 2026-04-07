@@ -33,5 +33,15 @@ jobs:
             echo "PASS: request to httpbin.org was blocked by Iron Proxy"
           fi
 
+      - name: Test that raw IP address is blocked
+        run: |
+          echo "Attempting request to 8.8.8.8 (should be blocked)..."
+          if curl -sf --max-time 5 http://8.8.8.8; then
+            echo "FAIL: request to 8.8.8.8 was NOT blocked"
+            exit 1
+          else
+            echo "PASS: request to 8.8.8.8 was blocked by Iron Proxy"
+          fi
+
       - uses: ironsh/iron-proxy-action/summary@v0.1.1
         if: always()
