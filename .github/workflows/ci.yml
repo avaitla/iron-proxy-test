@@ -25,6 +25,7 @@ jobs:
           OTEL_EXPORTER_OTLP_HEADERS: "Authorization=${{ secrets.LOGFIRE_SECRET }}"
           OTEL_EXPORTER_OTLP_PROTOCOL: http/protobuf
           OTEL_SERVICE_NAME: iron-proxy
+          OTEL_RESOURCE_ATTRIBUTES: "github.run_id=${{ github.run_id }},github.run_number=${{ github.run_number }},github.workflow=${{ github.workflow }},github.action=${{ github.action }},github.sha=${{ github.sha }},github.ref=${{ github.ref }},github.repository=${{ github.repository }},github.actor=${{ github.actor }}"
 
       - run: uv sync
       - run: uv run pytest -v
