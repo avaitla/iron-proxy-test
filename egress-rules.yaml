@@ -4,3 +4,4 @@ domains:
   - "files.pythonhosted.org"
   - "*.pythonhosted.org"
   - "releases.astral.sh"
+  - "logfire-us.pydantic.dev"
