@@ -50,3 +50,5 @@ jobs:
 
       - uses: ironsh/iron-proxy-action/summary@v0.1.1
         if: always()
+        with:
+          show-full-paths: "true"
