@@ -15,7 +15,7 @@ jobs:
 
       - uses: astral-sh/setup-uv@v5
 
-      - uses: ironsh/iron-proxy-action@v0.1.1
+      - uses: ironsh/iron-proxy-action@v0.1.2
         with:
           egress-rules: egress-rules.yaml
           warn: "false"
