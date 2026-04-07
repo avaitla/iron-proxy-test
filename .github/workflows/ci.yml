@@ -15,7 +15,7 @@ jobs:
 
       - uses: astral-sh/setup-uv@v5
 
-      - uses: ironsh/iron-proxy-action@v1
+      - uses: ironsh/iron-proxy-action@v0.1.1
         with:
           egress-rules: egress-rules.yaml
           warn: "true"
@@ -23,5 +23,5 @@ jobs:
       - run: uv sync
       - run: uv run pytest -v
 
-      - uses: ironsh/iron-proxy-action/summary@v1
+      - uses: ironsh/iron-proxy-action/summary@v0.1.1
         if: always()
